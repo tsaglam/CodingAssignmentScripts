@@ -10,5 +10,4 @@ Currently, this script is hardcoded to only convert Java files.
 Usage: `python convertToUtf8.py ./directory/path`
 
 ## removeAuthor.py
-
-TODO
+Script to recursively remove lines containing `@author` from all Java files within a specified directory. Currently hardcoded to use the folder `./submissions`.
