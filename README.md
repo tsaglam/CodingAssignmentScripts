@@ -11,3 +11,6 @@ Usage: `python convertToUtf8.py ./directory/path`
 
 ## removeAuthor.py
 Script to recursively remove lines containing `@author` from all Java files within a specified directory. Currently hardcoded to use the folder `./submissions`.
+
+## wrap_in_folders.py
+Script to wrap all Java files in the current directory into one folder each named after the file (without the Java suffix). Basically converts single-file submissions to directory submissions for JPlag.
