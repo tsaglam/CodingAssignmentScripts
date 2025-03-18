@@ -64,11 +64,11 @@ def convert_to_utf8(file_path, found_encodings):
     print(f"Error converting {file_path}")
 
 
-def convert_java_files(directory):
+def convert_files(directory, extension):
     found_encodings = {}
     for root, _, files in os.walk(directory):
         for file_name in files:
-            if file_name.endswith(".java"):
+            if file_name.endswith(extension):
                 file_path = os.path.join(root, file_name)
                 convert_to_utf8(file_path, found_encodings)
 
@@ -79,8 +79,8 @@ def convert_java_files(directory):
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python convert_to_utf8.py directory")
+    if len(sys.argv) != 3:
+        print("Usage: python convert_to_utf8.py directory file_extension")
         sys.exit(1)
 
     directory = sys.argv[1]
@@ -88,7 +88,9 @@ def main():
         print(f"Error: {directory} is not a valid directory.")
         sys.exit(1)
 
-    convert_java_files(directory)
+    file_extension = sys.argv[2]
+
+    convert_files(directory, file_extension)
 
 
 if __name__ == "__main__":
