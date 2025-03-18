@@ -14,7 +14,7 @@ def detect_encoding(file_path):
 def get_all_encodings():
     try:
         all_encodings = codecs.lookup("")
-        return [encoding for encoding in all_encodings]
+        return list(all_encodings)
     except LookupError as e:
         print(f"Error getting encodings: {e}")
         return []
