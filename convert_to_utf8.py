@@ -21,15 +21,14 @@ def get_all_encodings():
 
 
 def convert_content_to_utf8(content):
-    # Convert content to UTF-8
-    content_utf8 = content.encode("utf-8", "ignore").decode("utf-8")
-    # Remove non-ASCII characters
-    content_cleaned = "".join(char for char in content_utf8 if ord(char) < 128)
+    content_utf8 = content.encode("utf-8", "ignore").decode("utf-8")  # Convert to UTF-8
+    content_cleaned = "".join(
+        char for char in content_utf8 if ord(char) < 128
+    )  # Remove non-ASCII chars
     return content_cleaned
 
 
 def write_to_file(file_path, content):
-    # Write the converted content back to the file with UTF-8 encoding and removed non-ASCII characters
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(content)
 
@@ -81,7 +80,7 @@ def convert_java_files(directory):
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python convertToUtf8.py directory_path")
+        print("Usage: python convert_to_utf8.py directory")
         sys.exit(1)
 
     directory = sys.argv[1]

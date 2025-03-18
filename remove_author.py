@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 def remove_author_lines(file_path):
@@ -32,9 +33,19 @@ def process_directory(directory):
                     remove_author_lines(file_path)
 
 
-if __name__ == "__main__":
-    TARGET_DIRECTORY = (
-        "./submissions"  # Replace this with the path to your target directory
-    )
-    process_directory(TARGET_DIRECTORY)
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python remove_author.py directory_path")
+        sys.exit(1)
+
+    directory = sys.argv[1]
+    if not os.path.isdir(directory):
+        print(f"Error: {directory} is not a valid directory.")
+        sys.exit(1)
+
+    process_directory(directory)
     print("Author lines have been removed from the files in the directory.")
+
+
+if __name__ == "__main__":
+    main()
