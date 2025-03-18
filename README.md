@@ -1,16 +1,24 @@
-# Scripts for Code-based Assignments
+# Scripts for Teaching Programming/Programming Assignments
 Different scripts that help with managing/processing/grading code-based assignments.
 
-## convertToUtf8.py
-Script to batch convert all files in a directory (recursively) to UTF-8. The original encoding is guessed via `chardet`. If this encoding is not correct, many different encodings are brute-forced.
-To deal with cases where the detected encoding is not correct but it works anyway, all non ASCII characters are removed from the converted files.
+## convert_to_utf8.py
+Script to batch-convert all files in a specified directory (recursively) to UTF-8. The original encoding is guessed via `chardet`. If this encoding is not correct, many different encodings are brute-forced.
+To deal with cases where the detected encoding is incorrect but works anyway, all non-ASCII characters are removed from the converted files.
 
-Currently, this script is hardcoded to only convert Java files.
+Usage: `python convert_to_utf8.py ./path/to/dir/ file_extension`
 
-Usage: `python convertToUtf8.py ./directory/path`
+## remove_author.py
+Script to recursively remove lines containing `@author` from all Java files within a specified directory.
 
-## removeAuthor.py
-Script to recursively remove lines containing `@author` from all Java files within a specified directory. Currently hardcoded to use the folder `./submissions`.
+Usage: `python remove_author.py ./path/to/dir/`
 
 ## wrap_in_folders.py
-Script to wrap all Java files in the current directory into one folder each named after the file (without the Java suffix). Basically converts single-file submissions to directory submissions for JPlag.
+Script to wrap all files of a particular type in a specified directory into one folder, each named after the file (without the file extension). Basically converts single-file submissions to directory submissions for [JPlag](https://github.com/jplag/JPlag).
+
+Usage: `python wrap_in_folders.py ./path/to/dir/ file_extension`
+
+## text_assignment_statistics.py
+
+Script to count the frequency of answers in a text-based assignment. Takes a directory containing multiple text files, computing the most frequent answers. Ignores line breaks and trailing/leading spaces. Write the result in a CSV file located in the working directory.
+
+Usage: `python text_assignment_statistics.py ./path/to/dir/`
