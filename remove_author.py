@@ -1,21 +1,23 @@
 import os
 
+
 def remove_author_lines(file_path):
     """
     Remove lines containing '@author' from the specified file.
     """
     print(file_path)
     lines_to_keep = []
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         for line in file:
             if "@author" not in line:
                 lines_to_keep.append(line)
             else:
                 print(" - remove " + line)
-    
-    with open(file_path, 'w', encoding='utf-8') as file:
+
+    with open(file_path, "w", encoding="utf-8") as file:
         for line in lines_to_keep:
             file.write(line)
+
 
 def process_directory(directory):
     """
@@ -26,10 +28,13 @@ def process_directory(directory):
         for file in files:
             file_path = os.path.join(root, file)
             if os.path.isfile(file_path):
-                if file_path.endswith('.java'):
+                if file_path.endswith(".java"):
                     remove_author_lines(file_path)
 
+
 if __name__ == "__main__":
-    TARGET_DIRECTORY = "./submissions"  # Replace this with the path to your target directory
+    TARGET_DIRECTORY = (
+        "./submissions"  # Replace this with the path to your target directory
+    )
     process_directory(TARGET_DIRECTORY)
     print("Author lines have been removed from the files in the directory.")
