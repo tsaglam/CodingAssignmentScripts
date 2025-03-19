@@ -28,6 +28,7 @@ Usage: `python text_assignment_statistics.py ./path/to/dir/`
 
 Script to merge code for several assignments/subtasks. Combines task all folders in the current working directory into identifier-specific (last five characters) folders named CombinedTasks. For example, two folders A (containing submissions xyz-alice and abc-bobby) and B (containing submissions uvw-alice and jkl-bobby) will be merged into the following directory:
 
+```shell
 CombinedTasks
 |- alice
 |  |- A
@@ -36,3 +37,4 @@ CombinedTasks
 |- bob
    |- A
    |- B
+```
