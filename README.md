@@ -22,3 +22,17 @@ Usage: `python wrap_in_folders.py ./path/to/dir/ file_extension`
 Script to count the frequency of answers in a text-based assignment. Takes a directory containing multiple text files, computing the most frequent answers. Ignores line breaks and trailing/leading spaces. Write the result in a CSV file located in the working directory.
 
 Usage: `python text_assignment_statistics.py ./path/to/dir/`
+
+
+## combine_tasks.sh
+
+Script to merge code for several assignments/subtasks. Combines task all folders in the current working directory into identifier-specific (last five characters) folders named CombinedTasks. For example, two folders A (containing submissions xyz-alice and abc-bobby) and B (containing submissions uvw-alice and jkl-bobby) will be merged into the following directory:
+
+CombinedTasks
+|- alice
+|  |- A
+|  |- B
+|
+|- bob
+   |- A
+   |- B
