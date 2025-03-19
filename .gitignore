@@ -1,0 +1,15 @@
+# Editors
+.vscode/
+.idea/
+
+# Mac/OSX
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Installer logs
+pip-log.txt
+
+# pyenv
+.python-version
