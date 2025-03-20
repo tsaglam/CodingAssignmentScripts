@@ -12,29 +12,58 @@ Script to recursively remove lines containing `@author` from all Java files with
 
 Usage: `python remove_author.py ./path/to/dir/`
 
-## wrap_in_folders.py
-Script to wrap all files of a particular type in a specified directory into one folder, each named after the file (without the file extension). Basically converts single-file submissions to directory submissions for [JPlag](https://github.com/jplag/JPlag).
-
-Usage: `python wrap_in_folders.py ./path/to/dir/ file_extension`
-
 ## text_assignment_statistics.py
 
 Script to count the frequency of answers in a text-based assignment. Takes a directory containing multiple text files, computing the most frequent answers. Ignores line breaks and trailing/leading spaces. Write the result in a CSV file located in the working directory.
 
 Usage: `python text_assignment_statistics.py ./path/to/dir/`
 
+## wrap_in_folders.py
+Script to wrap all files of a particular type in a specified directory into one folder, each named after the file (without the file extension). Basically converts single-file submissions to directory submissions for [JPlag](https://github.com/jplag/JPlag).
+
+Usage: `python wrap_in_folders.py ./path/to/dir/ file_extension`
+
+### Input
+```shell
+directory
+├─ a.java
+└─ b.java
+```
+
+### Output
+```shell
+directory
+├─ a
+│  └─ a.java
+└─ b
+   └─ b.java
+```
 
 ## combine_tasks.sh
 
-Script to merge code for several assignments/subtasks. Combines task all folders in the current working directory into identifier-specific (last five characters) folders named CombinedTasks. For example, two folders A (containing submissions xyz-alice and abc-bobby) and B (containing submissions uvw-alice and jkl-bobby) will be merged into the following directory:
+Script to merge code for several assignments/subtasks. It combines all the tasks in the current working directory into identifier-specific (last five characters) folders in the result folder named CombinedTasks.
 
+### Input
+```shell
+directory
+├─ A
+│  ├─ xyz-alice
+│  └─ abc-bobby
+└─ B
+   ├─ uvw-alice
+   ├─ jkl-bobby
+   └─ dfg-chris
+```
+
+### Output
 ```shell
 CombinedTasks
-|- alice
-|  |- A
-|  |- B
-|
-|- bob
-   |- A
-   |- B
+├─ alice
+│  ├─ A
+│  └─ B
+├─ bobby
+│  ├─ A
+│  └─ B
+└─ chris
+   └─ B
 ```
