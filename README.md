@@ -18,6 +18,35 @@ Script to count the frequency of answers in a text-based assignment. Takes a dir
 
 Usage: `python text_assignment_statistics.py ./path/to/dir/`
 
+## anonymize.py
+Script to anonymize datasets by taking a part of the name of each student submission and mapping it to a number. The number is preserved across datasets.
+
+Usage: `python anonymize.py ./path/to/dir/ separator`
+
+### Input
+```shell
+directory
+├─ Task1
+│  ├─ task1-alice
+│  └─ task1-chris
+└─ Task2
+   ├─ task2-alice
+   ├─ task2-bob
+   └─ task2-chris
+```
+
+### Output
+```shell
+directory
+├─ Task1
+│  ├─ student1
+│  └─ student2
+└─ Task2
+   ├─ student1
+   ├─ student3
+   └─ student2
+```
+
 ## wrap_in_folders.py
 Script to wrap all files of a particular type in a specified directory into one folder, each named after the file (without the file extension). Basically converts single-file submissions to directory submissions for [JPlag](https://github.com/jplag/JPlag).
 
